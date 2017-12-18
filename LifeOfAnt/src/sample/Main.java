@@ -32,12 +32,13 @@ public class Main extends Application {
     final static Image BACKGROUND_IMAGE = new Image(Main.class.getResource("background.png").toString());
 
 
-    final static Image Tree_1_IMAGE = new Image(Main.class.getResource("Tree1.png").toString());
-    final static Image Tree_2_IMAGE = new Image(Main.class.getResource("Tree1.png").toString());
-    final static Image Tree_3_IMAGE = new Image(Main.class.getResource("Tree1.png").toString());
+    final static Image Tree_1_IMAGE = new Image(Main.class.getResource("Tree.png").toString());
+    final static Image Tree_2_IMAGE = new Image(Main.class.getResource("Tree.png").toString());
+    final static Image Tree_3_IMAGE = new Image(Main.class.getResource("Tree.png").toString());
+    final static Image Tree_4_IMAGE = new Image(Main.class.getResource("Tree.png").toString());
 
-    final static Image Ant1_IMAGE = new Image(Main.class.getResource("Ant1.png").toString());
-    final static Image Ant2_IMAGE = new Image(Main.class.getResource("Ant2.png").toString());
+    final static Image Ant1_IMAGE = new Image(Main.class.getResource("Ant.png").toString());
+    final static Image Ant2_IMAGE = new Image(Main.class.getResource("Ant.png").toString());
 
     private final static Random RANDOM = new Random();
 
@@ -51,17 +52,23 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         final ImageView tree1 = new ImageView(Tree_1_IMAGE);
-        tree1.setTranslateX(90);
-        tree1.setTranslateY(210);
+        tree1.setTranslateX(50);
+        tree1.setTranslateY(300);
+
         final ImageView tree2 = new ImageView(Tree_2_IMAGE);
-        tree2.setTranslateX(500);
-        tree2.setTranslateY(210);
+        tree2.setTranslateX(360);
+        tree2.setTranslateY(350);
+
         final ImageView tree3 = new ImageView(Tree_3_IMAGE);
-        tree3.setTranslateX(870);
-        tree3.setTranslateY(210);
+        tree3.setTranslateX(660);
+        tree3.setTranslateY(300);
+
+        final ImageView tree4 = new ImageView(Tree_4_IMAGE);
+        tree4.setTranslateX(970);
+        tree4.setTranslateY(350);
 
 
-        final Group foreground = new Group(tree1,tree2,tree3);
+        final Group foreground = new Group(tree1,tree2,tree3, tree4);
 
         foreground.setEffect(new DropShadow());
 
