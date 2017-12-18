@@ -48,6 +48,12 @@ public class Main extends Application {
     private IntegerProperty hitCounter = new SimpleIntegerProperty(this,"hitCounter");
     private IntegerProperty shotCounter = new SimpleIntegerProperty(this,"shotCounter");
 
+    boolean gameOver = false;
+
+	public static void main(String[] args) {
+		launch(args);
+	}
+
     @Override
     public void start(Stage primaryStage) throws Exception{
 
@@ -159,19 +165,16 @@ public class Main extends Application {
         primaryStage.show();
 
         startAnimation();
+
     }
 
-
-    public static void main(String[] args) {
-        launch(args);
-    }
 
     private void startAnimation(){
         if(current != null){
             current.stop();
         }
         final  int y0 = RANDOM.nextInt(HEIGHT/2)+HEIGHT/4;
-        final  int y1 = RANDOM.nextInt(HEIGHT/2)+HEIGHT/4;
+        final  int y1 = RANDOM.nextInt(WIDTH/2)+WIDTH/4;
 
         ant.setRotate(0);
 
@@ -181,7 +184,7 @@ public class Main extends Application {
                 .toX(WIDTH)
                 .fromY(y0)
                 .toY(y1)
-                .duration(Duration.seconds(2))
+                .duration(Duration.seconds(3))
                 .onFinished(new EventHandler<ActionEvent>() {
                     @Override
                     public void handle(ActionEvent event) {
@@ -189,5 +192,9 @@ public class Main extends Application {
                     }
                 }).build();
         current.play();
+
+        if((shotCounter.getValue() - hitCounter.getValue()) > 10){
+        	System.exit(1);
+        }
     }
 }
