@@ -11,6 +11,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.effect.BoxBlur;
 import javafx.scene.effect.DropShadow;
 import javafx.scene.image.Image;
@@ -51,11 +52,23 @@ public class Main extends Application {
     boolean gameOver = false;
 
 	public static void main(String[] args) {
-		launch(args);
+		Application.launch(Main.class);
 	}
 
     @Override
+    /*start is the main function for javafx. We used Image, Group, Stage, Scene and
+    Timelinebuilder to show the game.
+     */
     public void start(Stage primaryStage) throws Exception{
+
+	    Button exitbtn=new Button("Click To Exit");
+	    exitbtn.setStyle("-fx-border-color: red;");
+	    exitbtn.setStyle("-fx-background-color: red;");
+
+	    exitbtn.setLayoutX(570);
+	    exitbtn.setOnAction(event -> {
+	    	System.exit(0);
+	    });
 
         final ImageView tree1 = new ImageView(Tree_1_IMAGE);
         tree1.setTranslateX(50);
@@ -150,6 +163,7 @@ public class Main extends Application {
         hud.setTranslateY(40);
 
         final Group root = new Group(background,ant,foreground,hud);
+        root.getChildren().addAll(exitbtn);
 
         Scene scene = new Scene(root,WIDTH,HEIGHT);
 
@@ -168,7 +182,10 @@ public class Main extends Application {
 
     }
 
-
+    /*
+    startAnimation the animations in the game. Rotating ant, Generating random ants
+    are done in this part.
+     */
     private void startAnimation(){
         if(current != null){
             current.stop();
@@ -194,6 +211,7 @@ public class Main extends Application {
         current.play();
 
         if((shotCounter.getValue() - hitCounter.getValue()) > 10){
+	        System.out.println("Score: " + hitCounter.getValue());
         	System.exit(1);
         }
     }
