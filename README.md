@@ -1,8 +1,8 @@
 # CSE-215-project
 Course project.
 Project-type:Game
-Framework:JavaFx
+Framework/API:JavaFx
 
-An endless runner game. 
+A click based endless game. 
 
 DoneBy:Hasin Ishrak, Shourav Debnath, Abu Sayeed Khan
