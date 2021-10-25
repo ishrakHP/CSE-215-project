@@ -5,4 +5,4 @@ Framework/API:JavaFx
 
 A click based endless game. 
 
-DoneBy:Hasin Ishrak, Shourav Debnath, Abu Sayeed Khan
+DoneBy:Hasin Ishrak, Sourav Debnath, Abu Sayeed Khan
